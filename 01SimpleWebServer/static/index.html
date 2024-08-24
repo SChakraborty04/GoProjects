@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
+    rel="stylesheet"
+/>
+    <title>Proxy WebServer with LRU Cache</title>
+</head>
+<body>
+    <div id="main">
+        <div id="request">
+            <form action="/success" method="post">
+                <label for="url">URL:</label>
+                <input type="text" id="url" name="url" value="http://">
+                <button id="submit" type="submit"><i class="ri-search-2-line"></i></button>
+            </form>
+        </div>
+        <div id="response">
+            <h3>Response from URL:-</h3>
+            <div id="gores">
+                {{ with .Url }}
+                <p>{{ . }}</p>
+                {{ end }}
+                {{ with .Content }}
+                    <iframe>{{ . }}</iframe>
+                {{ end }}
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
